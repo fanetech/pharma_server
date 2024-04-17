@@ -1,6 +1,15 @@
 const path = require("path");
 
 module.exports = {
+    setUpdateObject: (data, updateObject) => {
+        for (let key in updateObject) {
+            if (updateObject[key] !== undefined) {
+                data[key] = updateObject[key];
+            }
+        }
+        return data;
+    }
+    ,
     serverRootDir: (filename) => {
         return path.dirname(path.basename(path.dirname(filename)));
     },
@@ -90,6 +99,7 @@ module.exports = {
         SCHOOL_YEAR_PERIOD_NDIVISION_ERROR: "nDivision ne doit pas être supérieur au nDivision de l'année scolaire!",
         FIELD_NOT_EMPTY: "cette action nécessite la suppression de certaines données!",
     },
+
 
 }
 
